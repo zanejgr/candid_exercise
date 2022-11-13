@@ -9,6 +9,7 @@
     <meta name="author" content="">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/SortBy.js"></script>
+    <script src="js/THClickHandlers.js"></script>
 </head>
 
 <body onload="SortBy('id')">
@@ -17,12 +18,13 @@
     </h1>
     <table>
         <thead>
-            <th onclick="SortBy('Id')">ID</th>
-            <th onclick="SortBy('FirstName')">First Name</th>
-            <th onclick="SortBy('LastName')">Last Name</th>
+            <th onclick="onClickId()">ID <img src="up.ico" /></th>
+            <th onclick="onClickFirstName()">First Name <img src="up.ico" /></th>
+            <th onclick="onClickLastName()">Last Name <img src="up.ico" /></th>
         </thead>
-        <tbody id="tbod" >
+        <tbody id="tbod">
         </tbody>
     </table>
 </body>
+
 </html>
