@@ -2,23 +2,27 @@
 <html lang="en">
 
 <head>
-  <meta name="description" content="Webpage description goes here" />
-  <meta charset="utf-8">
-  <title>Change_me</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="">
-  <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Webpage description goes here" />
+    <meta charset="utf-8">
+    <title>Change_me</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/SortBy.js"></script>
 </head>
 
-<body>
-<a name="top">
-<p>
-paragraph one
-</p>
-<p>
-paragraph two
-</p>
-<a href="#top">You've reached the end. Click here to go back to the beginning.</a>
-
+<body onload="SortBy('id')">
+    <h1>
+        Address Book
+    </h1>
+    <table>
+        <thead>
+            <th onclick="SortBy('Id')">ID</th>
+            <th onclick="SortBy('FirstName')">First Name</th>
+            <th onclick="SortBy('LastName')">Last Name</th>
+        </thead>
+        <tbody id="tbod" >
+        </tbody>
+    </table>
 </body>
 </html>
