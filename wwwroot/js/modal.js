@@ -78,4 +78,14 @@ function fillAddressModal(dat, customer_id) {
     li.appendChild(Country);
     li.appendChild(CountryVal);
   });
+
+  editbutton.onclick = ()=> {
+    fetch(`/customer/${customer_id}`)
+        .then((res)=>res.json())
+        .then((json) => {
+            window.location.href= `/editcustomer.html?id=${customer_id}&fname=${json[0].firstName}&lname=${json[0].lastName}`});
+        
+  }
+
 }
+
