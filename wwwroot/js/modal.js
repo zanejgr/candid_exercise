@@ -4,17 +4,26 @@ function OpenModal(customer_id) {
   modal.style.display = "block";
   fetch(`/address?customerID=${customer_id}`)
     .then((res) => (res.ok ? res.json() : []))
-    .then((dat) => fillAddressModal(dat));
+    .then((dat) => fillAddressModal(dat, customer_id));
 }
+
 function CloseModal() {
   const modal = document.getElementById("modal");
   modal.style.display = "none";
 }
 
-function fillAddressModal(dat) {
+function fillAddressModal(dat, customer_id) {
   const addrHeader = document.getElementById("address-header");
-  addrHeader.innerHTML = `${dat.length} address(es) found`;
 
+  const deletebutton = document.createElement("button");
+  const editbutton = document.createElement("a");
+  addrHeader.innerHTML = `${dat.length} address(es) found`;
+  editbutton.className="button";
+  deletebutton.innerHTML="delete customer";
+  editbutton.innerHTML="edit customer";
+  deletebutton.onclick=()=>deletecustomer(customer_id);
+  addrHeader.appendChild(deletebutton);
+  addrHeader.appendChild(editbutton);
   const addresses = document.getElementById("addresses");
   while (addresses.firstChild) {
     addresses.removeChild(addresses.firstChild);
