@@ -15,7 +15,7 @@ function submit() {
         FirstName: fname.value,
         LastName: lname.value,
       }),
-    }).then((Response)=>window.location.href="/index");
+    }).then((Response) => (window.location.href = "/index"));
   } else {
     form.reportValidity();
   }
