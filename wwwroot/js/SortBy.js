@@ -37,5 +37,6 @@ function writetotable(dat){
         cell.innerHTML = dat[i].firstName;
         cell = tr.insertCell();
         cell.innerHTML = dat[i].lastName;
+        tr.onclick = ()=>OpenModal(dat[i].id);
     }
 }

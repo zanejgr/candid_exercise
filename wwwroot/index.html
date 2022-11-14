@@ -1,21 +1,25 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
-    <meta name="description" content="Webpage description goes here" />
     <meta charset="utf-8">
-    <title>Change_me</title>
+    <title>Address Book</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modals.css">
+    <link rel="stylesheet" href="css/table.css">
     <script src="js/SortBy.js"></script>
     <script src="js/THClickHandlers.js"></script>
+    <script src="js/modal.js"></script>
 </head>
 
 <body onload="SortBy('id')">
+    <a id="top"></a>
     <h1>
         Address Book
     </h1>
+    <p>Click on a row for list of addresses.</p>
     <table>
         <thead>
             <th onclick="onClickId()">ID <img src="up.ico" /></th>
@@ -25,6 +29,20 @@
         <tbody id="tbod">
         </tbody>
     </table>
+
+    <div id="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="modal-header" id="address-header"></span>
+            <span class="close" onclick="CloseModal()">&times;</span>
+            <div id="addresses"></div>
+        </div>
+    </div>
+    <p>
+        You've reached the end.
+        <a href="#top">Click here</a>
+        to go back to the top
+    </p>
 </body>
 
 </html>

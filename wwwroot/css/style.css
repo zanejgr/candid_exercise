@@ -1,7 +1,20 @@
+
 html {
   max-width: 70ch;
   padding: 3em 1em;
   margin: auto;
   line-height: 1.75;
   font-size: 1.25em;
+}
+button,
+.button {
+  font: bold 11px Arial;
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
 }
