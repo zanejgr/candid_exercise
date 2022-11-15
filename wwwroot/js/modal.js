@@ -17,13 +17,18 @@ function fillAddressModal(dat, customer_id) {
 
   const deletebutton = document.createElement("button");
   const editbutton = document.createElement("a");
+  const addaddressbutton = document.createElement("a");
   addrHeader.innerHTML = `${dat.length} address(es) found`;
-  editbutton.className="button";
-  deletebutton.innerHTML="delete customer";
-  editbutton.innerHTML="edit customer";
-  deletebutton.onclick=()=>deletecustomer(customer_id);
+  editbutton.className = "button";
+  addaddressbutton.className = "button";
+  deletebutton.innerHTML = "delete customer";
+  editbutton.innerHTML = "edit customer";
+  addaddressbutton.innerHTML = "add address";
+  addaddressbutton.href = `/addaddress.html?id=${customer_id}`;
+  deletebutton.onclick = () => deletecustomer(customer_id);
   addrHeader.appendChild(deletebutton);
   addrHeader.appendChild(editbutton);
+  addrHeader.appendChild(addaddressbutton);
   const addresses = document.getElementById("addresses");
   while (addresses.firstChild) {
     addresses.removeChild(addresses.firstChild);
@@ -33,6 +38,13 @@ function fillAddressModal(dat, customer_id) {
   [...dat].forEach((element) => {
     const addSpan = document.createElement("div");
     addSpan.className = "address-span";
+    const delAddressButton = document.createElement("button");
+    const editAddressButton = document.createElement("a");
+    editAddressButton.className = "button";
+    delAddressButton.innerHTML = "delete address";
+    editAddressButton.innerHTML = "edit address";
+    addSpan.appendChild(delAddressButton);
+    addSpan.appendChild(editAddressButton);
     const li = document.createElement("dl");
 
     const AddressLine1 = document.createElement("dt");
@@ -79,13 +91,12 @@ function fillAddressModal(dat, customer_id) {
     li.appendChild(CountryVal);
   });
 
-  editbutton.onclick = ()=> {
+  editbutton.onclick = () => {
     fetch(`/customer/${customer_id}`)
-        .then((res)=>res.json())
-        .then((json) => {
-            window.location.href= `/editcustomer.html?id=${customer_id}&fname=${json[0].firstName}&lname=${json[0].lastName}`});
-        
-  }
-
+      .then((res) => res.json())
+      .then((json) => {
+        window.location.href = `/editcustomer.html?id=${customer_id}&fname=${json[0].firstName}&lname=${json[0].lastName}`;
+      });
+  };
 }
 
