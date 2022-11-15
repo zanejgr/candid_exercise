@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Address Book - Edit Address</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/editaddress.js"></script>
+</head>
+
+<body onload="load()">
+    <h1>Edit Address</h1>
+    <form id="form">
+        <input type="hidden" id="AddressId" name="AddressId">
+        <select name="AddressTypeId" id="AddressTypeId">
+            <option value="H">Home</option>
+            <option value="B">Business</option>
+            </select><br>
+        <label for="AddressLine1">Address Line 1 (required)</label>
+        <input type="text" name="AddressLine1" id="AddressLine1" pattern="([0-9a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*" required maxlength="128" minlength="1"><br>
+        <label for="AddressLine2">Address Line 2</label>
+        <input type="text" name="AddressLine2" id="AddressLine2" pattern="([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*" maxlength="128" minlength="1"><br>
+        <label for="City">City (required)</label>
+        <input type="text" name="City" id="City" pattern="([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*" required maxlength="32" minlength="1"><br>
+        <label for="State">State</label>
+        <input type="text" name="State" id="State" pattern="([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*" maxlength="32" minlength="1"><br>
+        <label for="Zip">Zip</label>
+        <input type="text" name="Zip" id="Zip" pattern="[-0-9.a-zA-Z]*" maxlength="10" minlength="1"><br>
+        <label for="Country">Country (required)</label>
+        <input type="text" name="Country" id="Country" pattern="([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*" required maxlength="56" minlength="4"><br>
+    </form>
+    <button onclick="submit()">Submit</button><a href="index.html" class="button">Cancel</a>
+</body>

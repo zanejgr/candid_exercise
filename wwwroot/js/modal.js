@@ -75,6 +75,8 @@ function fillAddressModal(dat, customer_id) {
     ZipVal.innerHTML = (element.zip ?? "").toString();
     CountryVal.innerHTML = element.country.toString();
 
+    editAddressButton.href=`/editaddress.html?id=${element.id}&AddressTypeId=${element.addressTypeId}&AddressLine1=${element.addressLine1}&AddressLine2=${element.addressLine2}&City=${element.city}&State=${element.state}&Zip=${element.zip}&Country=${element.country}`;
+
     addresses.appendChild(addSpan);
     addSpan.appendChild(li);
     li.appendChild(AddressLine1);
