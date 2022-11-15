@@ -23,17 +23,7 @@ CREATE TABLE addresses(
 		city VARCHAR(32) NOT NULL,
 		state VARCHAR(32),
 		zip CHAR(10),
-		country VARCHAR(56) NOT NULL);
-
-CREATE TABLE addresses(
-		address_id INTEGER PRIMARY KEY,
-		customer_id INTEGER NOT NULL,
-		address_type_id CHAR(1) NOT NULL,
-		line_1 VARCHAR(128) NOT NULL,
-		line_2 VARCHAR(128),
-		city VARCHAR(32) NOT NULL,
-		state VARCHAR(32),
-		zip CHAR(10),
 		country VARCHAR(56) NOT NULL,
+		CONSTRAINT customer_type_unique UNIQUE (customer_id, address_type_id),
 		FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
 		FOREIGN KEY (address_type_id) REFERENCES address_type(type_id));
